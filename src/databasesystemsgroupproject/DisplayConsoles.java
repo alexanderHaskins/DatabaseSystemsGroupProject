@@ -24,6 +24,7 @@ public class DisplayConsoles {
         PreparedStatement pstmt = connection.prepareStatement(getString);
         ResultSet rs = pstmt.executeQuery();
          while (rs.next()) {
+                
                System.out.println("Console Name: " + rs.getString(1));
                System.out.println("Console Creator: " + rs.getString(2));
                System.out.println("Console Price: " + rs.getFloat(3));
