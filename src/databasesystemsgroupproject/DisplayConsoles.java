@@ -30,7 +30,7 @@ public class DisplayConsoles {
                System.out.println("Console Price: " + rs.getFloat(3));
             }
         }catch(SQLException e){
-            System.out.println("SQL error with getConsoles method");
+            //System.out.println("SQL error with getConsoles method");
         }
     }
 }

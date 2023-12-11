@@ -37,9 +37,12 @@ public class DatabaseSystemsGroupProject {
             //admin.addConsole();
             //admin.changeConsoleCreator();
             //admin.changeConsoleName();
-            admin.changeConsolePrice();
+            //admin.changeConsolePrice();
             //admin.deleteConsole();
-
+            //admin.addGameConsole();
+            //admin.chageGameConsolePrice();
+            //admin.removeGameByConsole();
+            
             
 
         } catch (ClassNotFoundException e) {

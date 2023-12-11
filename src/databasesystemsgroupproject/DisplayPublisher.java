@@ -66,7 +66,7 @@ public class DisplayPublisher {
                 System.out.println("Count: " + rs.getInt(1));
             }
         }catch(SQLException e){
-            System.out.println("SQL error with getPublisherTotal method");
+           // System.out.println("SQL error with getPublisherTotal method");
         }
     }
 }

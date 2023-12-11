@@ -56,7 +56,7 @@ public class Admin {
             //Execute query
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with addGame method");
+            //System.out.println("SQL error with addGame method");
         }
     }
     
@@ -83,7 +83,7 @@ public class Admin {
             //System.out.println(pstmt.toString());
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with addConsole method");
+            //System.out.println("SQL error with addConsole method");
         }
     }
     public void changeGameDescription(){
@@ -100,7 +100,7 @@ public class Admin {
             //System.out.println(pstmt.toString());
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with changeGameDescription method");
+            //System.out.println("SQL error with changeGameDescription method");
         }
     }
     public void changeGameName(){
@@ -116,24 +116,7 @@ public class Admin {
             pstmt.setInt(2, Integer.parseInt(gameid));
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with changeGameName method");
-        }
-    }
-    //Need to fix this update statement to be by Console
-    public void changeGamePrice(){
-        try{
-            Scanner scan = new Scanner(System.in);
-            String updateString="Update Game SET Price=? Where GameID=?;";
-            PreparedStatement pstmt = connection.prepareStatement(updateString);
-            System.out.print("Enter game id:");
-            String gameid = scan.nextLine();
-            System.out.print("Enter the new value for the price:");
-            String gameprice = scan.nextLine();
-            pstmt.setBigDecimal(1, new BigDecimal(gameprice));
-            pstmt.setInt(2, Integer.parseInt(gameid));
-            pstmt.executeQuery();
-        }catch(SQLException e){
-            System.out.println("SQL error with changeGamePrice method");
+            //System.out.println("SQL error with changeGameName method");
         }
     }
     public void changeGameRating(){
@@ -149,7 +132,7 @@ public class Admin {
             pstmt.setInt(2, Integer.parseInt(gameid));
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with changeGameRating method");
+            //System.out.println("SQL error with changeGameRating method");
         }
     }
     public void changeConsoleName(){
@@ -166,7 +149,7 @@ public class Admin {
             pstmt.executeQuery();
 
         }catch(SQLException e){
-            System.out.println("SQL error with changeConsoleName method");
+            //System.out.println("SQL error with changeConsoleName method");
         }
     }
     public void changeConsoleCreator(){
@@ -183,7 +166,7 @@ public class Admin {
             pstmt.executeQuery();
 
         }catch(SQLException e){
-            System.out.println("SQL error with changeConsoleCreator method");
+            //System.out.println("SQL error with changeConsoleCreator method");
         }
     }
     public void changeConsolePrice(){
@@ -200,7 +183,7 @@ public class Admin {
             pstmt.executeQuery();
 
         }catch(SQLException e){
-            System.out.println("SQL error with changeConsolePrice method");
+            //System.out.println("SQL error with changeConsolePrice method");
         }
     }
     public void deleteGame(){
@@ -213,7 +196,7 @@ public class Admin {
             pstmt.setInt(1, Integer.parseInt(gameid));
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with deleteGame method");
+           // System.out.println("SQL error with deleteGame method");
         }
     }
     public void deleteConsole(){
@@ -226,7 +209,7 @@ public class Admin {
             pstmt.setInt(1, Integer.parseInt(conid));
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with deleteConsole method");
+            //System.out.println("SQL error with deleteConsole method");
         }
     }
     public void addGameConsole(){
@@ -242,10 +225,10 @@ public class Admin {
             String gameprice = scan.nextLine();
             pstmt.setInt(1, Integer.parseInt(gameid));
             pstmt.setInt(2, Integer.parseInt(conid));
-            pstmt.setFloat(3, Float.parseFloat(gameprice));
+            pstmt.setBigDecimal(3, new BigDecimal(gameprice));
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with addGameConsole method");
+           // System.out.println("SQL error with addGameConsole method");
         }
     }
     public void chageGameConsolePrice(){
@@ -261,17 +244,17 @@ public class Admin {
             String gameprice = scan.nextLine();
             pstmt.setInt(2, Integer.parseInt(gameid));
             pstmt.setInt(3, Integer.parseInt(conid));
-            pstmt.setFloat(1, Float.parseFloat(gameprice));
+            pstmt.setBigDecimal(1, new BigDecimal(gameprice));
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with changeGameConsolePrice method");
+            //System.out.println("SQL error with changeGameConsolePrice method");
         }
     }
     public void removeGameByConsole(){
         try{
             Scanner scan = new Scanner(System.in);
             String deleteString="DELETE FROM gameByConsole " +
-                    "WHERE GameID=1 AND consoleID=2;";
+                    "WHERE GameID=? AND ConsoleID=?;";
             PreparedStatement pstmt = connection.prepareStatement(deleteString);
             System.out.print("Enter game id:");
             String gameid = scan.nextLine();
@@ -279,9 +262,10 @@ public class Admin {
             String conid = scan.nextLine();
             pstmt.setInt(1, Integer.parseInt(gameid));
             pstmt.setInt(2, Integer.parseInt(conid));
+            //System.out.println(pstmt.toString());
             pstmt.executeQuery();
         }catch(SQLException e){
-            System.out.println("SQL error with removeGameByConsole method");
+            //System.out.println("SQL error with removeGameByConsole method");
         }
     }
 }
