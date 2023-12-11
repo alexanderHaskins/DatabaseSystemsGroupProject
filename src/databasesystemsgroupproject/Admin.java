@@ -5,6 +5,7 @@
 package databasesystemsgroupproject;
 import java.sql.*;
 import java.util.*;
+import java.math.*;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Admin {
     public DisplayPublisher displayPublisher;
     public DisplayConsoles displayConsole;
     public DisplayGamesClass displayGame;
+    
     public Admin(Connection conn){
         connection=conn;
         displayPublisher=new DisplayPublisher(conn);
@@ -60,7 +62,7 @@ public class Admin {
     
     public void addConsole(){
         try{
-            String insertString="INSERT INTO console(consoleID,Name,Creator,Price) VALUES(?,?,?,?);";
+            String insertString="INSERT INTO console(consoleID,Name,Creator,Price) VALUES(?,?,?,?) ;";
             Scanner scan = new Scanner(System.in);
             PreparedStatement pstmt = connection.prepareStatement(insertString);
             //Get user input
@@ -76,8 +78,9 @@ public class Admin {
             pstmt.setInt(1, Integer.parseInt(conid));
             pstmt.setString(2, conname);
             pstmt.setString(3, concreate);
-            pstmt.setFloat(4, Float.parseFloat(conprice));
+            pstmt.setBigDecimal(4, new BigDecimal(conprice));
             //Execute query
+            //System.out.println(pstmt.toString());
             pstmt.executeQuery();
         }catch(SQLException e){
             System.out.println("SQL error with addConsole method");
@@ -94,7 +97,7 @@ public class Admin {
             String gamedesc = scan.nextLine();
             pstmt.setString(1, gamedesc);
             pstmt.setInt(2, Integer.parseInt(gameid));
-            System.out.println(pstmt.toString());
+            //System.out.println(pstmt.toString());
             pstmt.executeQuery();
         }catch(SQLException e){
             System.out.println("SQL error with changeGameDescription method");
@@ -116,6 +119,7 @@ public class Admin {
             System.out.println("SQL error with changeGameName method");
         }
     }
+    //Need to fix this update statement to be by Console
     public void changeGamePrice(){
         try{
             Scanner scan = new Scanner(System.in);
@@ -125,7 +129,7 @@ public class Admin {
             String gameid = scan.nextLine();
             System.out.print("Enter the new value for the price:");
             String gameprice = scan.nextLine();
-            pstmt.setFloat(1, Float.parseFloat(gameprice));
+            pstmt.setBigDecimal(1, new BigDecimal(gameprice));
             pstmt.setInt(2, Integer.parseInt(gameid));
             pstmt.executeQuery();
         }catch(SQLException e){
@@ -191,7 +195,7 @@ public class Admin {
             String conid = scan.nextLine();
             System.out.print("Enter the new value for the price:");
             String conprice = scan.nextLine();
-            pstmt.setFloat(1, Float.parseFloat(conprice));
+            pstmt.setBigDecimal(1, new BigDecimal(conprice));
             pstmt.setInt(2, Integer.parseInt(conid));
             pstmt.executeQuery();
 

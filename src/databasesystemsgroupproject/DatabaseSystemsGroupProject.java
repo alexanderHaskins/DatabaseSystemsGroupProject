@@ -25,7 +25,7 @@ public class DatabaseSystemsGroupProject {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(url, user, password);
             //System.out.println("Connected");
-            //Admin admin=new Admin(connection);
+            Admin admin=new Admin(connection);
             //admin.displayConsole.getConsoles();
             //admin.addGame();
             
@@ -34,6 +34,11 @@ public class DatabaseSystemsGroupProject {
             //admin.changeGameRating();
             //admin.deleteGame();
             
+            //admin.addConsole();
+            //admin.changeConsoleCreator();
+            //admin.changeConsoleName();
+            admin.changeConsolePrice();
+            //admin.deleteConsole();
 
             
 
