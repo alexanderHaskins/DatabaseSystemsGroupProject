@@ -28,7 +28,7 @@ public class DisplayPublisher {
                System.out.println("Publisher NetWorth: " + rs.getFloat(4));
             }
         }catch(SQLException e){
-            System.out.println("SQL error with getConsoles method");
+            System.out.println("SQL error with getPublisher method");
         }
     }
     public void getPublisherGames(){
@@ -49,7 +49,7 @@ public class DisplayPublisher {
                 System.out.println("Publisher Name: " + rs.getString(2));
             }
         }catch(SQLException e){
-            System.out.println("SQL error with getConsoles method");
+            System.out.println("SQL error with getPublisherGames method");
         }
     }
     public void getPublisherTotal(){
@@ -66,7 +66,7 @@ public class DisplayPublisher {
                 System.out.println("Count: " + rs.getInt(1));
             }
         }catch(SQLException e){
-            System.out.println("SQL error with getConsoles method");
+            System.out.println("SQL error with getPublisherTotal method");
         }
     }
 }
