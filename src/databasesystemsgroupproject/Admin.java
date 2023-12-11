@@ -26,32 +26,31 @@ public class Admin {
         try{
             Scanner scan = new Scanner(System.in);
             PreparedStatement pstmt = connection.prepareStatement(InsertString);
-            //Get user input
-            System.out.print("Enter game id:");
+            System.out.println("Enter game id:");
             String gameid = scan.nextLine();
-            
-            System.out.print("Enter game name:");
-            String gamename=scan.nextLine();
-            
-             System.out.print("Enter publisher id:");
-            String pubid = scan.nextLine();
-            
-            System.out.print("Enter game genre:");
-            String genre=scan.nextLine();
-            
-            System.out.print("Enter game rating:");
-            String gameRate=scan.nextLine();
-            
-            System.out.print("Enter game description:");
-            String gameDesc=scan.nextLine();
-            //Add input to statement
             pstmt.setInt(1, Integer.parseInt(gameid));
+            
+            System.out.println("Enter game name:");
+            String gamename=scan.nextLine();
             pstmt.setString(2, gamename);
+            
+             System.out.println("Enter publisher id:");
+            String pubid = scan.nextLine();
             pstmt.setInt(3, Integer.parseInt(pubid));
+            
+            System.out.println("Enter game genre:");
+            String genre=scan.nextLine();
             pstmt.setString(4, genre);
+            
+            System.out.println("Enter game rating:");
+            String gameRate=scan.nextLine();
             pstmt.setString(5,gameRate);
+            
+            System.out.println("Enter game description:");
+            String gameDesc=scan.nextLine();
             pstmt.setString(6, gameDesc);
             
+            //System.out.println(pstmt.toString());
             //Execute query
             pstmt.executeQuery();
         }catch(SQLException e){
@@ -87,7 +86,7 @@ public class Admin {
     public void changeGameDescription(){
         try{
             Scanner scan = new Scanner(System.in);
-            String updateString="Update Console SET Description=? Where GameID=?;";
+            String updateString="Update Game SET Description=? Where GameID=? ;";
             PreparedStatement pstmt = connection.prepareStatement(updateString);
             System.out.print("Enter game id:");
             String gameid = scan.nextLine();
@@ -95,6 +94,7 @@ public class Admin {
             String gamedesc = scan.nextLine();
             pstmt.setString(1, gamedesc);
             pstmt.setInt(2, Integer.parseInt(gameid));
+            System.out.println(pstmt.toString());
             pstmt.executeQuery();
         }catch(SQLException e){
             System.out.println("SQL error with changeGameDescription method");
@@ -103,7 +103,7 @@ public class Admin {
     public void changeGameName(){
         try{
             Scanner scan = new Scanner(System.in);
-            String updateString="Update Console SET Name=? Where GameID=?;";
+            String updateString="Update Game SET Name=? Where GameID=?;";
             PreparedStatement pstmt = connection.prepareStatement(updateString);
             System.out.print("Enter game id:");
             String gameid = scan.nextLine();
@@ -119,7 +119,7 @@ public class Admin {
     public void changeGamePrice(){
         try{
             Scanner scan = new Scanner(System.in);
-            String updateString="Update Console SET Price=? Where GameID=?;";
+            String updateString="Update Game SET Price=? Where GameID=?;";
             PreparedStatement pstmt = connection.prepareStatement(updateString);
             System.out.print("Enter game id:");
             String gameid = scan.nextLine();
@@ -135,7 +135,7 @@ public class Admin {
     public void changeGameRating(){
         try{
             Scanner scan = new Scanner(System.in);
-            String updateString="Update Console SET Rating=? Where GameID=?;";
+            String updateString="Update Game SET Rating=? Where GameID=?;";
             PreparedStatement pstmt = connection.prepareStatement(updateString);
             System.out.print("Enter game id:");
             String gameid = scan.nextLine();
@@ -266,7 +266,7 @@ public class Admin {
     public void removeGameByConsole(){
         try{
             Scanner scan = new Scanner(System.in);
-            String deleteString="DELETE FROM gameByConsole\n" +
+            String deleteString="DELETE FROM gameByConsole " +
                     "WHERE GameID=1 AND consoleID=2;";
             PreparedStatement pstmt = connection.prepareStatement(deleteString);
             System.out.print("Enter game id:");

@@ -34,10 +34,10 @@ public class DisplayPublisher {
     public void getPublisherGames(){
         try{
             Scanner scan = new Scanner(System.in);
-            String getString="SELECT game.Name,publisher.Name FROM game\n" +
-                             "INNER JOIN\n" +
-                             "publisher\n" +
-                             "ON game.PublisherID=publisher.PublisherID\n" +
+            String getString="SELECT game.Name,publisher.Name FROM game " +
+                             "INNER JOIN " +
+                             "publisher " +
+                             "ON game.PublisherID=publisher.PublisherID " +
                              "WHERE game.PublisherID=?;";
             PreparedStatement pstmt = connection.prepareStatement(getString);
             System.out.print("Enter publisher ID:");
@@ -55,7 +55,7 @@ public class DisplayPublisher {
     public void getPublisherTotal(){
         try{
             Scanner scan = new Scanner(System.in);
-            String getString="SELECT Count(*) FROM game\n" +
+            String getString="SELECT Count(*) FROM game " +
                              "WHERE PublisherID=?;";
             PreparedStatement pstmt = connection.prepareStatement(getString);
             System.out.print("Enter publisher ID:");
