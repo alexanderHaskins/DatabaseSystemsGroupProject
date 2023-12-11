@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class DatabaseSystemsGroupProject {
     //Dummy variables for testing purposes
-    private static String url="jdbc:postgresql://localhost:5432/ClassExampleCompanyManagmentDB";
+    private static String url="jdbc:postgresql://localhost:5432/DatatabaseSystemsGroupProjectAssignment9";
     private static String user="postgres";
     private static String password="S@n0cgaP5";
     /**
