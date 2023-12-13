@@ -10,12 +10,13 @@ import java.util.*;
 /**
  *
  * @author alexj
+ * @authoe LoganM
  */
 public class DatabaseSystemsGroupProject {
     //Dummy variables for testing purposes
-    private static String url="jdbc:postgresql://localhost:5432/DatatabaseSystemsGroupProjectAssignment9";
+    private static String url="jdbc:postgresql://localhost:5432/GameStore";
     private static String user="postgres";
-    private static String password="S@n0cgaP5";
+    private static String password="Who0psIForgot!";
     /**
      * @param args the command line arguments
      */

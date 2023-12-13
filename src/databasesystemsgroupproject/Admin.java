@@ -268,4 +268,6 @@ public class Admin {
             //System.out.println("SQL error with removeGameByConsole method");
         }
     }
+
+    
 }
